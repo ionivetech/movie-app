@@ -1,5 +1,3 @@
-# gramedia-revamp
-
 ## Build Setup
 
 ```bash
