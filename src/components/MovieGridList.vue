@@ -71,7 +71,7 @@
 
                     @media screen and(max-width: 399px) {
                         object-fit: contain;
-                        max-height: 280px;
+                        max-height: 205px;
                     }
                 }
             }
