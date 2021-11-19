@@ -7,7 +7,7 @@
             <div class="relative">
                 <VLazyImage
                     class="w-full object-cover rounded-2xl"
-                    :src="`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`"
+                    :src="`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path || movie.poster_path}`"
                     :alt="movie.title"
                 />
 

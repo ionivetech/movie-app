@@ -1,5 +1,5 @@
 <template>
-    <div class="movie-list">
+    <div class="movie-grid-list">
         <div
             class="movie-card p-3 bg-white rounded-3xl flex flex-col"
             v-for="movie in movies"
@@ -7,7 +7,7 @@
             <div class="relative">
                 <VLazyImage
                     class="w-full object-cover rounded-2xl"
-                    :src="`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`"
+                    :src="`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.backdrop_path || movie.poster_path}`"
                     :alt="movie.title"
                 />
 
@@ -41,17 +41,40 @@
 </script>
 
 <style lang="scss">
-    .movie-list{
+    .movie-grid-list{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-        grid-gap: 40px;
-    }
-    .movie-card {
-        box-shadow: 0px 4px 10px #e7e8f1;
+        grid-gap: 20px;
 
-        img{
-            height: 17rem;
-            box-shadow: 0px 4px 10px #e5e6e9;
+        .movie-card {
+            min-width: 100%;
+            max-width: 100%;
+            box-shadow: 0px 4px 10px #e7e8f1;
+
+            img{
+                min-height: 18rem;
+                max-height: 26rem;
+                box-shadow: 0px 4px 10px #e5e6e9;
+            }
+
+        }
+    }
+
+    @media screen and(max-width: 500px) {
+        .movie-grid-list {
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+
+            .movie-card {
+                img {
+                    min-height: 204px;
+                    max-height: 240px;
+
+                    @media screen and(max-width: 399px) {
+                        object-fit: contain;
+                        max-height: 280px;
+                    }
+                }
+            }
         }
     }
 </style>
