@@ -54,11 +54,11 @@
 
 <script setup lang="ts">
     import { ref } from 'vue';
+    import { IMovie } from '@/interfaces/MovieInterface';
     import TabMovie from '@/components/Tabs/TabMovie.vue';
     import TabTV from '@/components/Tabs/TabTV.vue';
-    import MovieService from '../services/MovieService';
-    import { IMovie } from '../interfaces/MovieInterface';
-import MovieGridList from '../components/MovieGridList.vue';
+    import MovieService from '@/services/MovieService';
+    import MovieGridList from '@/components/MovieGridList.vue';
 
     // Variable
     const tabActive = ref<string>('movie')
