@@ -40,9 +40,9 @@
 
 <script setup lang="ts">
     import { onMounted, ref } from 'vue';
-    import { IMovie } from '../../interfaces/MovieInterface';
-    import MovieService from '../../services/MovieService';
-    import LoadingList from '@/components/LoadingList.vue';
+    import { IMovie } from '@/interfaces/MovieInterface';
+    import MovieService from '@/services/MovieService';
+    import LoadingList from '@/components/Loading/LoadingList.vue';
     import MovieList from '@/components/MovieList.vue';
 
     // Variable
@@ -86,11 +86,5 @@
     onMounted(() => {
         getFilm()
     })
-</script>
-
-<script lang="ts">
-    export default {
-        name: 'TabMovie',
-    }
 </script>
 
