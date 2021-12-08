@@ -1,38 +1,10 @@
 <template>
     <div>
-        <!-- Top Rated List -->
-        <div class="mb-20">
-            <h4 class="font-semibold text-xl text-gray-800 capitalize mb-4">Top Rated Movie</h4>
+        <div class="mb-20" v-for="cat in category" :key="cat.key">
+            <h4 class="font-semibold text-xl text-gray-800 capitalize mb-4">{{ cat.title }}</h4>
             <component
-                :is="loading ? LoadingList : MovieList"
-                :movies="topRatedist"
-            />
-        </div>
-
-        <!-- Upcoming List -->
-        <div class="mb-20">
-            <h4 class="font-semibold text-xl text-gray-800 capitalize mb-4">Upcoming Movie</h4>
-            <component
-                :is="loading ? LoadingList : MovieList"
-                :movies="upcomingList"
-            />
-        </div>
-
-        <!-- Now Playing List -->
-        <div class="mb-20">
-            <h4 class="font-semibold text-xl text-gray-800 capitalize mb-4">Now Playing Movie</h4>
-            <component
-                :is="loading ? LoadingList : MovieList"
-                :movies="nowPlayingList"
-            />
-        </div>
-
-        <!-- Popular List -->
-        <div>
-            <h4 class="font-semibold text-xl text-gray-800 mb-4">Popular Movie</h4>
-            <component
-                :is="loading ? LoadingList : MovieList"
-                :movies="popularList"
+                :is="loading && !isHaveList() ? LoadingList : MovieList"
+                :movies="cat.list"
             />
         </div>
     </div>
@@ -40,47 +12,46 @@
 
 <script setup lang="ts">
     import { onMounted, ref } from 'vue';
-    import { IMovie } from '@/interfaces/MovieInterface';
+    import { useCategoryStore } from '@/store/category';
+    import { ICategoryDetail } from '@/interfaces/CategoryInterface';
     import MovieService from '@/services/MovieService';
     import LoadingList from '@/components/Loading/LoadingList.vue';
     import MovieList from '@/components/MovieList.vue';
 
+    // Declare Store
+    const categoryStore = useCategoryStore()
+
     // Variable
     const loading = ref<boolean>(true)
-    const category = ref<Array<string>>([
-        'top_rated',
-        'upcoming',
-        'now_playing',
-        'popular'
-    ])
-    const topRatedist = ref<IMovie[]>([])
-    const upcomingList = ref<IMovie[]>([])
-    const nowPlayingList = ref<IMovie[]>([])
-    const popularList = ref<IMovie[]>([])
+    const type = ref<string>('movie')
+    const category = ref<ICategoryDetail[]>(categoryStore.getCategoryMovie)
 
     // Function Get Data
     const getFilm = async () => {
-        loading.value = true
-        
-        await category.value.forEach(cat => {
-            MovieService.getFilm('movie', cat).then((response) => {
-                switch (cat) {
-                    case 'top_rated':
-                        topRatedist.value = response.results
-                        break;
-                    case 'upcoming':
-                        upcomingList.value = response.results
-                        break;
-                    case 'now_playing':
-                        nowPlayingList.value = response.results
-                        break;
-                    case 'popular':
-                        popularList.value = response.results
-                        break;
-                }
-                loading.value = false
+        if (!isHaveList()) {
+            loading.value = true
+
+            await category.value.forEach(cat => {
+                MovieService.getFilm(type.value, cat.key).then((response) => {
+                    categoryStore.setListCategory(type.value, cat.key, response.results)
+                    loading.value = false
+                })
             })
+        }
+    }
+
+    // Function check if already have list
+    const isHaveList = (): boolean => {
+        const checkList: Array<boolean> = []
+
+        category.value.map(cat => {
+            checkList.push(cat.list.length > 0)
         })
+
+        const isChecking = (currValue: boolean) => {
+            return currValue === true
+        }
+        return checkList.some(isChecking)
     }
 
     onMounted(() => {

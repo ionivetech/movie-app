@@ -8,11 +8,11 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "pinia": "^2.0.4",
     "v-lazy-image": "^2.0.1",
     "vue": "^3.2.16",
     "vue-axios": "^3.4.0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
