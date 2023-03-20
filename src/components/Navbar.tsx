@@ -11,7 +11,7 @@ function Navbar() {
   ]
 
   return (
-    <div className='fixed top-0 left-0 w-full h-16 border-b border-slate-300/10 bg-background/90 backdrop-blur'>
+    <div className='fixed top-0 left-0 w-full h-16 border-b border-slate-300/10 bg-background/[0.85] backdrop-blur z-[100]'>
       <div className='container h-full flex items-center justify-between'>
         {/* Left Side */}
         <div className='flex items-center'>
