@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         background: 'rgb(17, 24, 39)',
       },
+      gridTemplateColumns: {
+        'movie': 'repeat(auto-fill, minmax(180px, 1fr))'
+      }
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
@@ -21,5 +24,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }

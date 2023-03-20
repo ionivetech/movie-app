@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 // Interfaces
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { IMovieStore } from '@/interfaces/IMovieStore'
-import type { RootState } from '@/stores/Store'
+import type { IMovieStore } from 'interfaces/IMovieStore'
+import type { RootState } from 'stores/Store'
 
 // Initial State
 const initialState: IMovieStore = {
