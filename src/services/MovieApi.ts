@@ -11,3 +11,8 @@ export const getTopRated = async (type: string, payload: IGetListPayload) => {
   const response = await Api().get(`/${type}/top_rated`, { params: payload })
   return response
 }
+
+export const getDetail = async (type: string, id: number) => {
+  const response = await Api().get(`/${type}/${id}`)
+  return response
+}
