@@ -24,13 +24,13 @@ function ListLayout() {
   return (
     <>
       {/* Tab */}
-      <div className='flex space-x-3 mb-12'>
+      <div className='flex space-x-3 mb-8'>
         {tabs.map((tab, index) => {
           return (
             <div
               key={tab.id}
               className={`px-5 py-2 rounded-full bg-slate-600 text-sm text-slate-100 tracking-wider transition ease-in-out duration-200
-                  ${tabActive === tab.id ? '!bg-blue-500 cursor-default' : 'cursor-pointer'}
+                  ${tabActive === tab.id ? '!bg-blue-600 cursor-default' : 'cursor-pointer'}
                 `}
               tabIndex={index}
               role='button'

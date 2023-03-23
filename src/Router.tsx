@@ -4,8 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import ListLayout from '@/layouts/ListLayout'
 const DetailLayout = lazy(() => import('@/layouts/DetailLayout'))
 // Pages
-import Popular from '@/views/Popular'
-const TopRated = lazy(() => import('@/views/TopRated'))
+const List = lazy(() => import('@/views/List'))
 const Detail = lazy(() => import('@/views/Detail'))
 
 export default function Router() {
@@ -15,11 +14,11 @@ export default function Router() {
         <Route element={<ListLayout />}>
           <Route
             path='/'
-            element={<Popular />}
+            element={<List />}
           />
           <Route
             path='top-rated'
-            element={<TopRated />}
+            element={<List />}
           />
         </Route>
 

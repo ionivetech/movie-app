@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 // Interfaces
 import type { IMenu } from '@/interfaces/IMenu'
 // Icons
-import { icon } from '@/assets/icons'
+import { Icon } from '@/assets/icons'
 
 function Navbar() {
   const menus: IMenu[] = [
@@ -11,13 +11,13 @@ function Navbar() {
   ]
 
   return (
-    <div className='fixed top-0 left-0 w-full h-16 border-b border-slate-300/10 bg-background/[0.85] backdrop-blur z-[100]'>
+    <div className='fixed top-0 left-0 w-full h-16 border-b border-slate-300/10 bg-background/[0.85] backdrop-blur-lg z-[100]'>
       <div className='container h-full flex items-center justify-between'>
         {/* Left Side */}
         <div className='flex items-center'>
           {/* App Icon */}
           <img
-            src={icon}
+            src={Icon}
             alt='application-icon'
             className='w-9 h-9 mr-4'
           />
@@ -49,7 +49,7 @@ function Navbar() {
         <input
           type='text'
           placeholder='Search..'
-          className='max-w-[300px] h-10 px-4 bg-slate-800 text-slate-200 border border-transparent rounded-md shadow placeholder:text-slate-400 focus:outline-none focus:border-blue-500 transition duration-300 ease-in-out'
+          className='max-w-[300px] h-10 px-4 bg-slate-800 text-slate-200 border border-slate-700 rounded-md shadow placeholder:text-slate-400 focus:outline-none focus:border-blue-500 transition duration-300 ease-in-out'
         />
       </div>
     </div>

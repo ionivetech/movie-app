@@ -1,3 +1,3 @@
-import icon from './icon.svg'
+import Icon from './icon.svg'
 
-export { icon }
+export { Icon }
