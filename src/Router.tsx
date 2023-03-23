@@ -12,19 +12,23 @@ export default function Router() {
     <Suspense fallback={<></>}>
       <Routes>
         <Route element={<ListLayout />}>
+          {/* Popular */}
           <Route
             path='/'
             element={<List />}
           />
+
+          {/* Top Rated */}
           <Route
             path='top-rated'
             element={<List />}
           />
         </Route>
 
+        {/* Detail */}
         <Route element={<DetailLayout />}>
           <Route
-            path='detail/:id'
+            path='/detail/:id'
             element={<Detail />}
           />
         </Route>

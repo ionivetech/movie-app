@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 // Stores
 import { useAppSelector } from 'stores/Hooks'
-import { getTabActive } from 'stores/MovieSlice'
+import { getTabActive, getMenuActive } from 'stores/MovieSlice'
 // Services
 import { getPopular, getTopRated } from 'services/MovieApi'
 // Interfaces
@@ -18,6 +18,7 @@ const Movie = () => {
   const apiKey: string = import.meta.env.VITE_API_KEY
   const location = useLocation()
   const tabActive: string = useAppSelector(getTabActive)
+  const menuActive: string = useAppSelector(getMenuActive)
   const [firstLoad, setFirsLoad] = useState<boolean>(true)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [movies, setMovies] = useState<IMovie[]>([])
@@ -26,6 +27,7 @@ const Movie = () => {
 
   // Get data popular
   const getData = async () => {
+    window.scrollTo(0, 0)
     let service
 
     setIsLoading(true)
@@ -37,8 +39,8 @@ const Movie = () => {
     }
 
     // Set service function
-    if (location.pathname === '/') service = getPopular
-    else if (location.pathname === '/top-rated') service = getTopRated
+    if (menuActive === '/') service = getPopular
+    else if (menuActive === 'top-rated') service = getTopRated
 
     if (service) {
       const { data } = await service(tabActive, params)
@@ -84,7 +86,10 @@ const Movie = () => {
                 key={movie.id}
                 className='flex flex-col'
               >
-                <MovieCard movie={movie} />
+                <MovieCard
+                  movie={movie}
+                  menuActive={menuActive}
+                />
               </div>
             )
           })}

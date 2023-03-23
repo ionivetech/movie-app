@@ -10,15 +10,15 @@ import { Dummy } from '@/assets/images'
 import { StarIcon } from '@heroicons/react/24/solid'
 
 // Local Interfaces
-interface IMovieCardProps {
+interface IProps {
   movie: IMovie
 }
 
-const MovieCard = ({ movie }: IMovieCardProps) => {
+const MovieCard = ({ movie }: IProps) => {
   return (
     <>
       <Link
-        to={`detail/${movie.id}`}
+        to={`/detail/${movie.id}`}
         className='w-full h-[300px] mb-3 rounded-xl'
       >
         {/* Image */}
@@ -40,7 +40,7 @@ const MovieCard = ({ movie }: IMovieCardProps) => {
       </Link>
       {/* Movie name */}
       <Link
-        to={`detail/${movie.id}}`}
+        to={`/detail/${movie.id}`}
         className='text-base text-slate-100 text-ellipsis mb-2 line-clamp-1 cursor-pointer'
       >
         {movie.title || movie.name}

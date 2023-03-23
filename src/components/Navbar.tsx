@@ -1,14 +1,22 @@
 import { NavLink } from 'react-router-dom'
+// Stores
+import { useAppDispatch } from 'stores/Hooks'
+import { setMenuActive } from 'stores/MovieSlice'
 // Interfaces
 import type { IMenu } from '@/interfaces/IMenu'
 // Icons
 import { Icon } from '@/assets/icons'
 
 function Navbar() {
+  // Variables
+  const dispatch = useAppDispatch()
   const menus: IMenu[] = [
     { href: '/', label: 'Popular' },
     { href: 'top-rated', label: 'Top Rated' },
   ]
+
+  // Set menu active
+  const setMenu = (menu: string) => dispatch(setMenuActive(menu))
 
   return (
     <div className='fixed top-0 left-0 w-full h-16 border-b border-slate-300/10 bg-background/[0.85] backdrop-blur-lg z-[100]'>
@@ -32,6 +40,7 @@ function Navbar() {
                 <NavLink
                   to={menu.href}
                   key={`${menu.label}-${index}`}
+                  onClick={() => setMenu(menu.href)}
                   className={({ isActive }) =>
                     isActive
                       ? 'text-blue-500 font-medium text-base'
