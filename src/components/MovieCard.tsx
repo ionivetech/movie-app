@@ -1,9 +1,11 @@
+import { BaseSyntheticEvent } from 'react'
 import { Link } from 'react-router-dom'
-// Stores
-import { useAppSelector } from 'stores/Hooks'
-import { getTabActive } from 'stores/MovieSlice'
 // Interfaces
 import { IMovie } from 'interfaces/IMovie'
+// Components
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component'
+// Images
+import { Dummy } from '@/assets/images'
 // Icons
 import { StarIcon } from '@heroicons/react/24/solid'
 
@@ -12,23 +14,28 @@ interface IMovieCardProps {
   movie: IMovie
 }
 
-export const MovieCard = ({ movie }: IMovieCardProps) => {
-  // Variables
-  const tabActive: string = useAppSelector(getTabActive)
-
+const MovieCard = ({ movie }: IMovieCardProps) => {
   return (
     <>
       <Link
-        to={`detail/${movie.id}}`}
-        className='group w-full h-[312px] mb-3 rounded-xl overflow-hidden'
+        to={`detail/${movie.id}`}
+        className='w-full h-[300px] mb-3 rounded-xl'
       >
         {/* Image */}
-        <img
+        <LazyLoadImage
           src={`https://www.themoviedb.org/t/p/w220_and_h330_face${
             movie.backdrop_path || movie.poster_path
           }`}
           alt={movie.title}
-          className='w-full object-center object-cover rounded-xl cursor-pointer transition ease-in-out duration-300 group-hover:scale-110'
+          useIntersectionObserver={true}
+          threshold={100}
+          placeholderSrc={Dummy}
+          onError={(event: BaseSyntheticEvent) => {
+            event.currentTarget.onerror = null
+            event.currentTarget.src = Dummy
+          }}
+          width='100%'
+          className='w-full h-[300px] object-center object-cover rounded-xl cursor-pointer'
         />
       </Link>
       {/* Movie name */}
@@ -40,7 +47,9 @@ export const MovieCard = ({ movie }: IMovieCardProps) => {
       </Link>
       {/* Release date & rating */}
       <div className='flex justify-between items-center'>
-        <p className='text-sm text-zinc-400'>{movie.release_date?.split('-')[0]}</p>
+        <p className='text-sm text-zinc-400'>
+          {movie.release_date?.split('-')[0] || movie.first_air_date?.split('-')[0]}
+        </p>
 
         <div className='flex justify-between items-center space-x-1'>
           <StarIcon className='w-4 h-4 text-yellow-600 -mt-[2px]' />
@@ -50,3 +59,5 @@ export const MovieCard = ({ movie }: IMovieCardProps) => {
     </>
   )
 }
+
+export default trackWindowScroll(MovieCard)

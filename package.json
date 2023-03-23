@@ -13,8 +13,11 @@
   "dependencies": {
     "@heroicons/react": "^2.0.16",
     "@reduxjs/toolkit": "^1.9.3",
+    "@types/react-paginate": "^7.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-lazy-load-image-component": "^1.5.6",
+    "react-paginate": "^8.1.4",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0"
   },
@@ -23,6 +26,7 @@
     "@types/node": "^18.15.3",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@types/react-lazy-load-image-component": "^1.5.2",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
     "@vitejs/plugin-react": "^3.1.0",

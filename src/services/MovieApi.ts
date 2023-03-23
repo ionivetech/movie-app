@@ -1,13 +1,13 @@
 import Api from 'services/BaseService'
+// Interfaces
+import { IGetListPayload } from 'interfaces/IGetListPayload'
 
-const apiKey: string = import.meta.env.VITE_API_KEY
-
-export const getPopular = async (type: string) => {
-  const response = await Api().get(`/${type}/popular?api_key=${apiKey}&language=en-US`)
+export const getPopular = async (type: string, payload: IGetListPayload) => {
+  const response = await Api().get(`/${type}/popular`, { params: payload })
   return response
 }
 
-export const getTopRated = async (type: string) => {
-  const response = await Api().get(`/${type}/top_rated?api_key=${apiKey}&language=en-US`)
+export const getTopRated = async (type: string, payload: IGetListPayload) => {
+  const response = await Api().get(`/${type}/top_rated`, { params: payload })
   return response
 }

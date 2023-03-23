@@ -26,5 +26,6 @@
     }
   },
   "include": ["src/**/*", "src/**/*.ts", "src/**/*.tsx"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "files": [".types.d.ts"]
 }

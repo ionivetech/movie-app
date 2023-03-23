@@ -7,7 +7,8 @@ module.exports = {
         background: 'rgb(17, 24, 39)',
       },
       gridTemplateColumns: {
-        'movie': 'repeat(auto-fill, minmax(180px, 1fr))'
+        'movie': 'repeat(auto-fill, minmax(180px, 1fr))',
+        'movie-sm': 'repeat(auto-fill, minmax(175px, 1fr))'
       }
     },
     fontFamily: {
