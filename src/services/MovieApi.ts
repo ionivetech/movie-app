@@ -1,6 +1,6 @@
 import Api from 'services/BaseService'
 // Interfaces
-import { IGetListPayload } from 'interfaces/IGetListPayload'
+import { IGetListPayload, IDetailPayload } from '@/interfaces/IPayloads'
 
 export const getPopular = async (type: string, payload: IGetListPayload) => {
   const response = await Api().get(`/${type}/popular`, { params: payload })
@@ -12,7 +12,7 @@ export const getTopRated = async (type: string, payload: IGetListPayload) => {
   return response
 }
 
-export const getDetail = async (type: string, id: number) => {
-  const response = await Api().get(`/${type}/${id}`)
+export const getDetail = async (type: string, id: string, payload: IDetailPayload) => {
+  const response = await Api().get(`/${type}/${id}&language=en-US`, { params: payload })
   return response
 }

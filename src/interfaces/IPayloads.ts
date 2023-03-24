@@ -4,3 +4,8 @@ export interface IGetListPayload {
   language: string
   region: string
 }
+
+export interface IDetailPayload {
+  api_key: string
+  language: string
+}

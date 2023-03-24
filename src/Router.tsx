@@ -28,7 +28,7 @@ export default function Router() {
         {/* Detail */}
         <Route element={<DetailLayout />}>
           <Route
-            path='/detail/:id'
+            path='/:type/detail/:id'
             element={<Detail />}
           />
         </Route>

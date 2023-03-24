@@ -7,7 +7,7 @@ import { getTabActive, getMenuActive } from 'stores/MovieSlice'
 import { getPopular, getTopRated } from 'services/MovieApi'
 // Interfaces
 import { IMovie } from 'interfaces/IMovie'
-import { IGetListPayload } from 'interfaces/IGetListPayload'
+import { IGetListPayload } from '@/interfaces/IPayloads'
 // Components
 import MovieCard from 'components/MovieCard'
 import Pagination from 'components/Pagination'

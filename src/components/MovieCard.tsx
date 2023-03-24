@@ -1,5 +1,8 @@
 import { BaseSyntheticEvent } from 'react'
 import { Link } from 'react-router-dom'
+// Stores
+import { useAppSelector } from 'stores/Hooks'
+import { getTabActive } from 'stores/MovieSlice'
 // Interfaces
 import { IMovie } from 'interfaces/IMovie'
 // Components
@@ -15,10 +18,13 @@ interface IProps {
 }
 
 const MovieCard = ({ movie }: IProps) => {
+  // Variables
+  const tabActive: string = useAppSelector(getTabActive)
+
   return (
     <>
       <Link
-        to={`/detail/${movie.id}`}
+        to={`/${tabActive}/detail/${movie.id}`}
         className='w-full h-[300px] mb-3 rounded-xl'
       >
         {/* Image */}
@@ -40,7 +46,7 @@ const MovieCard = ({ movie }: IProps) => {
       </Link>
       {/* Movie name */}
       <Link
-        to={`/detail/${movie.id}`}
+        to={`/${tabActive}/detail/${movie.id}}`}
         className='text-base text-slate-100 text-ellipsis mb-2 line-clamp-1 cursor-pointer'
       >
         {movie.title || movie.name}
