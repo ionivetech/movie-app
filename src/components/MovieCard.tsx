@@ -10,7 +10,9 @@ import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-componen
 // Images
 import { Dummy } from '@/assets/images'
 // Icons
-import { StarIcon } from '@heroicons/react/24/solid'
+import { IconStarFilled } from '@tabler/icons-react'
+// Style effect
+import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 // Local Interfaces
 interface IProps {
@@ -35,11 +37,12 @@ const MovieCard = ({ movie }: IProps) => {
           alt={movie.title}
           useIntersectionObserver={true}
           threshold={100}
-          placeholderSrc={Dummy}
+          placeholderSrc={<div className='bg-slate-800 animate-pulse' />}
           onError={(event: BaseSyntheticEvent) => {
             event.currentTarget.onerror = null
             event.currentTarget.src = Dummy
           }}
+          effect='black-and-white'
           width='100%'
           className='w-full h-[300px] object-center object-cover rounded-xl cursor-pointer'
         />
@@ -58,7 +61,10 @@ const MovieCard = ({ movie }: IProps) => {
         </p>
 
         <div className='flex justify-between items-center space-x-1'>
-          <StarIcon className='w-4 h-4 text-yellow-600 -mt-[2px]' />
+          <IconStarFilled
+            size={16}
+            className='text-yellow-600 -mt-[3px]'
+          />
           <p className='text-sm text-zinc-400'>{movie.vote_average}</p>
         </div>
       </div>

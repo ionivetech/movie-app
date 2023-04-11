@@ -1,7 +1,7 @@
 // Components
 import ReactPaginate from 'react-paginate'
 // Icons
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react'
 
 // Props interface
 interface IProps {
@@ -17,8 +17,8 @@ function Pagination(props: IProps) {
       initialPage={props.page - 1}
       pageRangeDisplayed={2}
       pageCount={props.totalPages}
-      nextLabel={<ChevronRightIcon className='w-5 h-5' />}
-      previousLabel={<ChevronLeftIcon className='w-5 h-5' />}
+      nextLabel={<IconChevronRight className='w-5 h-5' />}
+      previousLabel={<IconChevronLeft className='w-5 h-5' />}
       containerClassName='flex space-x-3'
       pageClassName='min-w-[35px] h-[35px] hidden md:flex text-slate-300 font-semibold text-sm bg-slate-700 rounded-lg'
       pageLinkClassName='w-full h-full px-4 pt-[2px] flex items-center justify-center'

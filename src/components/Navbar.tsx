@@ -6,6 +6,7 @@ import { setMenuActive } from 'stores/MovieSlice'
 import type { IMenu } from '@/interfaces/IMenu'
 // Icons
 import { Icon } from '@/assets/icons'
+import { IconSearch } from '@tabler/icons-react'
 
 function Navbar() {
   // Variables
@@ -55,10 +56,9 @@ function Navbar() {
         </div>
 
         {/* Right Side & Search Box */}
-        <input
-          type='text'
-          placeholder='Search..'
-          className='max-w-[300px] h-10 px-4 bg-slate-800 text-slate-200 border border-slate-700 rounded-md shadow placeholder:text-slate-400 focus:outline-none focus:border-blue-500 transition duration-300 ease-in-out'
+        <IconSearch
+          size={20}
+          className='text-slate-100'
         />
       </div>
     </div>
