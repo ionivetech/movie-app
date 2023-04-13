@@ -1,8 +1,8 @@
 export interface IGetListPayload {
   api_key: string
-  page: number
+  page?: number
   language: string
-  region: string
+  region?: string
 }
 
 export interface IDetailPayload {

@@ -5,6 +5,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  @apply bg-background antialiased;
+body {
+  @apply bg-background-light dark:bg-background antialiased transition ease-in-out duration-300;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

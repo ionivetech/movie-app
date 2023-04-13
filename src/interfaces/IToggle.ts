@@ -1,4 +1,4 @@
-export interface ITab {
+export interface IToggle {
   id: string
   label: string
 }

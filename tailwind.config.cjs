@@ -1,10 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
         background: 'rgb(17, 24, 39)',
+        'background-light': '#f6f8fd',
       },
       gridTemplateColumns: {
         movie: 'repeat(auto-fill, minmax(180px, 1fr))',
@@ -25,5 +27,4 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
 }

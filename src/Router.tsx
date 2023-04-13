@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import ListLayout from '@/layouts/ListLayout'
 const DetailLayout = lazy(() => import('@/layouts/DetailLayout'))
 // Pages
+const Home = lazy(() => import('@/views/Home'))
 const List = lazy(() => import('@/views/List'))
 const Detail = lazy(() => import('@/views/Detail'))
 
@@ -12,9 +13,15 @@ export default function Router() {
     <Suspense fallback={<></>}>
       <Routes>
         <Route element={<ListLayout />}>
-          {/* Popular */}
+          {/* Home */}
           <Route
             path='/'
+            element={<Home />}
+          />
+
+          {/* Popular */}
+          <Route
+            path='popular'
             element={<List />}
           />
 

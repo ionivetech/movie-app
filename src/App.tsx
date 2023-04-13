@@ -6,7 +6,7 @@ function App() {
   return (
     <div className='relative'>
       <Navbar />
-      <div className='container mt-16 py-10'>
+      <div className='relative container mt-16 py-10'>
         <Router />
       </div>
     </div>

@@ -27,7 +27,7 @@ const MovieCard = ({ movie }: IProps) => {
     <>
       <Link
         to={`/${tabActive}/detail/${movie.id}`}
-        className='w-full h-[300px] mb-3 rounded-xl'
+        className='w-full h-[220px] md:h-[250px] lg:h-[300px] mb-3 rounded-xl'
       >
         {/* Image */}
         <LazyLoadImage
@@ -37,36 +37,37 @@ const MovieCard = ({ movie }: IProps) => {
           alt={movie.title}
           useIntersectionObserver={true}
           threshold={100}
-          placeholderSrc={<div className='bg-slate-800 animate-pulse' />}
+          placeholderSrc={<div className='bg-slate-300 dark:bg-slate-800 animate-pulse' />}
           onError={(event: BaseSyntheticEvent) => {
             event.currentTarget.onerror = null
             event.currentTarget.src = Dummy
           }}
           effect='black-and-white'
           width='100%'
-          className='w-full h-[300px] object-center object-cover rounded-xl cursor-pointer'
+          className='w-full h-[220px] md:h-[250px] lg:h-[300px] object-center object-cover rounded-xl cursor-pointer'
         />
       </Link>
       {/* Movie name */}
       <Link
         to={`/${tabActive}/detail/${movie.id}}`}
-        className='text-base text-slate-100 text-ellipsis mb-2 line-clamp-1 cursor-pointer'
+        className='text-sm md:text-base text-slate-900 dark:text-slate-100 text-ellipsis mb-1 sm:mb-2 line-clamp-1 cursor-pointer'
       >
         {movie.title || movie.name}
       </Link>
       {/* Release date & rating */}
       <div className='flex justify-between items-center'>
-        <p className='text-sm text-zinc-400'>
+        <p className='text-xs md:text-sm text-slate-600 dark:text-zinc-400'>
           {movie.release_date?.split('-')[0] || movie.first_air_date?.split('-')[0]}
         </p>
 
-        <div className='flex justify-between items-center space-x-1'>
-          <IconStarFilled
-            size={16}
-            className='text-yellow-600 -mt-[3px]'
-          />
-          <p className='text-sm text-zinc-400'>{movie.vote_average}</p>
-        </div>
+        {Number(movie.vote_average) > 0 && (
+          <div className='flex justify-between items-center space-x-1'>
+            <IconStarFilled className='w-3 md:w-4 text-yellow-500 dark:text-yellow-600 -mt-[3px]' />
+            <p className='text-xs md:text-sm text-slate-600 dark:text-zinc-400'>
+              {movie.vote_average}
+            </p>
+          </div>
+        )}
       </div>
     </>
   )

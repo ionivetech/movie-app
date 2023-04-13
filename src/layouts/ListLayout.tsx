@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 // Interfaces
-import type { ITab } from 'interfaces/ITab'
+import type { IToggle } from '@/interfaces/IToggle'
 // Stores
 import { useAppSelector, useAppDispatch } from 'stores/Hooks'
 import { setTabActive, getTabActive } from 'stores/MovieSlice'
@@ -11,7 +11,7 @@ function ListLayout() {
   const dispatch = useAppDispatch()
   const location = useLocation()
   const tabActive: string = useAppSelector(getTabActive)
-  const tabs: ITab[] = [
+  const tabs: IToggle[] = [
     { id: 'movie', label: 'Movies' },
     { id: 'tv', label: 'TV Show' },
   ]
@@ -24,7 +24,7 @@ function ListLayout() {
   return (
     <>
       {/* Tab */}
-      <div className='flex space-x-3 mb-8'>
+      {/* <div className='sticky top-[64px] flex space-x-3 bg-background mb-8 py-5 z-[1]'>
         {tabs.map((tab, index) => {
           return (
             <div
@@ -40,7 +40,7 @@ function ListLayout() {
             </div>
           )
         })}
-      </div>
+      </div> */}
 
       <Outlet />
     </>

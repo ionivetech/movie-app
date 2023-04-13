@@ -11,7 +11,7 @@ import { IGetListPayload } from '@/interfaces/IPayloads'
 // Components
 import MovieCard from 'components/MovieCard'
 import Pagination from 'components/Pagination'
-import { MovieCardSkeleton } from 'components/skeleton/MovieCardSkeleton'
+import MovieCardSkeleton from 'components/skeleton/MovieCardSkeleton'
 
 const Movie = () => {
   // Variables
