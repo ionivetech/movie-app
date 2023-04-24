@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 // Interfaces
 import type { IMenu } from '@/interfaces/IMenu'
 // Hooks
@@ -44,7 +45,10 @@ const Navbar = () => {
     <div className='fixed top-0 left-0 flex flex-col w-full md:h-16 h-24 border-b border-slate-700/10 dark:border-slate-300/10 bg-background-light/[0.85] dark:bg-background/[0.85] backdrop-blur-lg z-[100]'>
       <div className='container h-full flex items-center justify-between'>
         {/* Left Side */}
-        <div className='flex items-center'>
+        <NavLink
+          to='/'
+          className='flex items-center'
+        >
           {/* App Icon */}
           <img
             src={Icon}
@@ -60,7 +64,7 @@ const Navbar = () => {
             <Menu menu={moviesMenu} />
             <Menu menu={tvMenu} />
           </div>
-        </div>
+        </NavLink>
 
         {/* Right Side & Search Box */}
         <div className='flex items-center space-x-6'>

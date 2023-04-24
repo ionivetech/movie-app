@@ -25,5 +25,6 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
+    '@typescript-eslint/no-explicit-any': 'off'
   },
 }

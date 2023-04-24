@@ -17,18 +17,15 @@ interface IProps {
 }
 
 const MovieCard = ({ movie }: IProps) => {
-  console.log(movie)
   return (
     <>
       <Link
         to={`/${movie.first_air_date ? 'tv' : 'movie'}/detail/${movie.id}`}
-        className='w-full h-[220px] md:h-[250px] lg:h-[300px] mb-3 rounded-xl'
+        className='w-full h-[220px] md:h-[250px] lg:h-[300px] mb-3 rounded-2xl'
       >
         {/* Image */}
         <LazyLoadImage
-          src={`https://www.themoviedb.org/t/p/w220_and_h330_face${
-            movie.backdrop_path || movie.poster_path
-          }`}
+          src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
           alt={movie.title}
           useIntersectionObserver={true}
           threshold={100}
@@ -39,7 +36,7 @@ const MovieCard = ({ movie }: IProps) => {
           }}
           effect='black-and-white'
           width='100%'
-          className='w-full h-[220px] md:h-[250px] lg:h-[300px] object-center object-cover rounded-xl cursor-pointer'
+          className='w-full h-[220px] md:h-[250px] lg:h-[300px] object-center object-cover rounded-2xl cursor-pointer shadow-lg'
         />
       </Link>
       {/* Movie name */}
@@ -59,7 +56,7 @@ const MovieCard = ({ movie }: IProps) => {
           <div className='flex justify-between items-center space-x-1'>
             <IconStarFilled className='w-3 md:w-4 text-yellow-500 dark:text-yellow-600 -mt-[3px]' />
             <p className='text-xs md:text-sm text-slate-600 dark:text-zinc-400'>
-              {movie.vote_average}
+              {String(movie.vote_average).substring(0, 3)}
             </p>
           </div>
         )}

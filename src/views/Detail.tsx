@@ -32,12 +32,12 @@ const Detail = () => {
       {detail && (
         <>
           <img
-            src={`https://www.themoviedb.org/t/p/w220_and_h330_face${detail.backdrop_path}`}
+            src={`https://www.themoviedb.org/t/p/w220_and_h330_face${detail.poster_path}`}
             alt={detail.title || detail.name}
           />
 
           <img
-            src={`https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${detail.poster_path}`}
+            src={`https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${detail.backdrop_path}`}
             alt={detail.name}
           />
         </>
