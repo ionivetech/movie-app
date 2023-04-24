@@ -8,6 +8,7 @@ import type { IGetListPayload } from '@/interfaces/IPayloads'
 // Components
 import MovieCard from 'components/MovieCard'
 import MovieCardSkeleton from 'components/skeleton/MovieCardSkeleton'
+import Toggle from 'components/Toggle'
 
 const Popular = () => {
   // Variables
@@ -58,27 +59,11 @@ const Popular = () => {
             What&apos;s Popular
           </h3>
           {/* Toggle */}
-          <div className='flex items-center space-x-2'>
-            {toggles.map((toggle, index) => {
-              return (
-                <div
-                  key={toggle.id}
-                  className={`px-3 md:px-4 py-1 md:py-[6px] rounded-full bg-slate-300 dark:bg-slate-600 text-xs md:text-sm text-slate-600 dark:text-slate-100 tracking-wide whitespace-nowrap transition ease-in-out duration-200
-                    ${
-                      toggleActive === toggle.id
-                        ? '!bg-blue-500 dark:!bg-blue-600 !text-slate-50 cursor-default'
-                        : 'cursor-pointer'
-                    }
-                  `}
-                  tabIndex={index}
-                  role='button'
-                  onClick={() => setToggleActive(toggle.id)}
-                >
-                  {toggle.label}
-                </div>
-              )
-            })}
-          </div>
+          <Toggle
+            toggles={toggles}
+            toggleActive={toggleActive}
+            handleChangeToggle={setToggleActive}
+          />
         </div>
 
         {/* Movie List */}

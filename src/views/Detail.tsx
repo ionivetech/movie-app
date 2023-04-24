@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 // Services
 import { getDetail } from 'services/MovieApi'
 // Interfaces
@@ -9,18 +9,16 @@ import { IMovieDetail } from 'interfaces/IMovieDetail'
 const Detail = () => {
   // Variables
   const apiKey: string = import.meta.env.VITE_API_KEY
-  const { pathname } = useLocation()
+  const { type, id } = useParams()
   const [detail, setDetail] = useState<IMovieDetail | null>(null)
 
   // Get Detail Movie
   const getDetailMovie = async () => {
-    const type: string = pathname.split('/')[1]
-    const id: string = pathname.split('/').slice(-1)[0]
     const payload: IDetailPayload = {
       api_key: apiKey,
       language: 'en-US',
     }
-    const { data } = await getDetail(type, id, payload)
+    const { data } = await getDetail(type || '', id || '', payload)
     if (data) setDetail(data)
   }
 

@@ -1,4 +1,8 @@
 export interface IMenu {
-  href: string
+  type: string
   label: string
+  menus: {
+    href: string
+    label: string
+  }[]
 }

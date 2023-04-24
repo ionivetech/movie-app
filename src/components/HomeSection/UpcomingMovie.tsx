@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 // Services
-import { getUpcomingMovie } from 'services/MovieApi'
+import { getUpcoming } from 'services/MovieApi'
 // Interfaces
 import type { IMovie } from 'interfaces/IMovie'
 import type { IGetListPayload } from '@/interfaces/IPayloads'
@@ -24,7 +24,7 @@ const UpcomingMovie = () => {
     }
 
     setIsLoading(true)
-    const { data } = await getUpcomingMovie(params)
+    const { data } = await getUpcoming(params)
     if (data) {
       setMovies(data.results || [])
       setIsLoading(false)

@@ -1,28 +1,38 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-// Stores
-import { useAppDispatch } from 'stores/Hooks'
-import { setMenuActive } from 'stores/MovieSlice'
 // Interfaces
 import type { IMenu } from '@/interfaces/IMenu'
 // Hooks
 import useDarkMode from '@/hooks/useDarkMode'
+// Components
+import Menu from 'components/Menu'
 // Icons
 import { Icon } from '@/assets/icons'
 import { IconSearch, IconMoon, IconSun } from '@tabler/icons-react'
 
-function Navbar() {
+const Navbar = () => {
   // Variables
-  const dispatch = useAppDispatch()
   const { theme, setTheme } = useDarkMode()
   const [darkMode, setDarkMode] = useState<boolean>(theme === 'dark' ? true : false)
-  const menus: IMenu[] = [
-    { href: '/', label: 'Popular' },
-    { href: 'top-rated', label: 'Top Rated' },
-  ]
-
-  // Set menu active
-  const setMenu = (menu: string) => dispatch(setMenuActive(menu))
+  const moviesMenu: IMenu = {
+    type: 'movie',
+    label: 'Movies',
+    menus: [
+      { href: 'movie/popular', label: 'Popular' },
+      { href: 'movie/now-playing', label: 'Now Playing' },
+      { href: 'movie/top-rated', label: 'Top Rated' },
+      { href: 'movie/upcoming', label: 'upcoming' },
+    ],
+  }
+  const tvMenu: IMenu = {
+    type: 'tv',
+    label: 'TV Shows',
+    menus: [
+      { href: 'tv/popular', label: 'Popular' },
+      { href: 'tv/airing-today', label: 'Airing Today' },
+      { href: 'tv/on-the-air', label: 'On TV' },
+      { href: 'tv/top-rated', label: 'Top Rated' },
+    ],
+  }
 
   // Toggle dark mode
   const toggleDarkMode = (checked: boolean) => {
@@ -31,7 +41,7 @@ function Navbar() {
   }
 
   return (
-    <div className='fixed top-0 left-0 w-full h-16 border-b border-slate-700/10 dark:border-slate-300/10 bg-background-light/[0.85] dark:bg-background/[0.85] backdrop-blur-lg z-[100]'>
+    <div className='fixed top-0 left-0 flex flex-col w-full md:h-16 h-24 border-b border-slate-700/10 dark:border-slate-300/10 bg-background-light/[0.85] dark:bg-background/[0.85] backdrop-blur-lg z-[100]'>
       <div className='container h-full flex items-center justify-between'>
         {/* Left Side */}
         <div className='flex items-center'>
@@ -39,26 +49,16 @@ function Navbar() {
           <img
             src={Icon}
             alt='application-icon'
-            className='w-9 h-9 mr-4'
+            className='md:w-9 md:h-9 w-8 h-8 mr-4'
           />
 
           {/* Title */}
-          <h3 className='text-slate-800 dark:text-white font-medium text-xl mr-8'>Movie App</h3>
+          <h3 className='text-slate-800 dark:text-slate-100 font-medium text-xl mr-8'>Movie App</h3>
 
           {/* Menu */}
-          <div className='space-x-4 hidden sm:block'>
-            {menus.map((menu, index) => {
-              return (
-                <NavLink
-                  to={menu.href}
-                  key={`${menu.label}-${index}`}
-                  onClick={() => setMenu(menu.href)}
-                  className='text-slate-700 dark:text-slate-100'
-                >
-                  {menu.label}
-                </NavLink>
-              )
-            })}
+          <div className='md:flex hidden items-center space-x-7'>
+            <Menu menu={moviesMenu} />
+            <Menu menu={tvMenu} />
           </div>
         </div>
 
@@ -77,6 +77,14 @@ function Navbar() {
           >
             {darkMode ? <IconSun size={20} /> : <IconMoon size={20} />}
           </div>
+        </div>
+      </div>
+
+      {/* Menu if mobile view */}
+      <div className='md:hidden py-2 border-t border-slate-700/10 dark:border-slate-300/10'>
+        <div className='container flex space-x-6'>
+          <Menu menu={moviesMenu} />
+          <Menu menu={tvMenu} />
         </div>
       </div>
     </div>

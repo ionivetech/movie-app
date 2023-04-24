@@ -22,8 +22,23 @@ export const getTopRated = async (type: string, payload: IGetListPayload) => {
   return response
 }
 
-export const getUpcomingMovie = async (payload: IGetListPayload) => {
+export const getNowPlaying = async (payload: IGetListPayload) => {
+  const response = await Api().get('/movie/now_playing', { params: payload })
+  return response
+}
+
+export const getUpcoming = async (payload: IGetListPayload) => {
   const response = await Api().get('/movie/upcoming', { params: payload })
+  return response
+}
+
+export const getAiringToday = async (payload: IGetListPayload) => {
+  const response = await Api().get('/tv/airing_today', { params: payload })
+  return response
+}
+
+export const getOnTheAir = async (payload: IGetListPayload) => {
+  const response = await Api().get('/tv/on_the_air', { params: payload })
   return response
 }
 

@@ -10,7 +10,9 @@ module.exports = {
       },
       gridTemplateColumns: {
         movie: 'repeat(auto-fill, minmax(180px, 1fr))',
-        'movie-sm': 'repeat(auto-fill, minmax(175px, 1fr))',
+        'movie-md': 'repeat(auto-fill, minmax(160px, 1fr))',
+        'movie-sm': 'repeat(auto-fill, minmax(150px, 1fr))',
+        'movie-xs': 'repeat(auto-fill, minmax(120px, 1fr))',
       },
     },
     fontFamily: {

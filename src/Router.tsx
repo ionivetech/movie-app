@@ -19,15 +19,9 @@ export default function Router() {
             element={<Home />}
           />
 
-          {/* Popular */}
+          {/* List Movie */}
           <Route
-            path='popular'
-            element={<List />}
-          />
-
-          {/* Top Rated */}
-          <Route
-            path='top-rated'
+            path='/:type/:menu'
             element={<List />}
           />
         </Route>
