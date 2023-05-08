@@ -5,6 +5,7 @@ export interface IMovie {
   id: number
   original_language: string
   original_title: string
+  original_name?: string
   origin_country?: Array<number>
   overview: string
   popularity: string | number

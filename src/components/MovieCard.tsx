@@ -26,7 +26,7 @@ const MovieCard = ({ movie }: IProps) => {
         {/* Image */}
         <LazyLoadImage
           src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
-          alt={movie.title}
+          alt={movie.title || movie.original_title || movie.original_name}
           useIntersectionObserver={true}
           threshold={100}
           placeholderSrc={<div className='bg-slate-300 dark:bg-slate-800 animate-pulse' />}
