@@ -16,7 +16,7 @@ const Detail = () => {
   const getDetailMovie = async () => {
     const payload: IDetailPayload = {
       api_key: apiKey,
-      language: 'en-US',
+      language: 'id',
     }
     const { data } = await getDetail(type || '', id || '', payload)
     if (data) setDetail(data)

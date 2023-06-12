@@ -46,3 +46,13 @@ export const getDetail = async (type: string, id: string, payload: IDetailPayloa
   const response = await Api().get(`/${type}/${id}&language=en-US`, { params: payload })
   return response
 }
+
+export const searchFilm = async (payload: object) => {
+  const response = await Api().get(`search/movie`, { params: payload })
+  return response
+}
+
+export const searchTv = async (payload: object) => {
+  const response = await Api().get(`search/tv`, { params: payload })
+  return response
+}

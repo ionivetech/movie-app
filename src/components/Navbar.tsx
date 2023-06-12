@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 // Interfaces
 import type { IMenu } from '@/interfaces/IMenu'
@@ -6,12 +6,14 @@ import type { IMenu } from '@/interfaces/IMenu'
 import useDarkMode from '@/hooks/useDarkMode'
 // Components
 import Menu from 'components/Menu'
+import ModalSearch from 'components/ModalSearch'
 // Icons
 import { Icon } from '@/assets/icons'
 import { IconSearch, IconMoon, IconSun } from '@tabler/icons-react'
 
 const Navbar = () => {
   // Variables
+  const modalSearchRef = useRef<{ openModal: () => void }>(null)
   const { theme, setTheme } = useDarkMode()
   const [darkMode, setDarkMode] = useState<boolean>(theme === 'dark' ? true : false)
   const moviesMenu: IMenu = {
@@ -70,7 +72,8 @@ const Navbar = () => {
         <div className='flex items-center space-x-6'>
           <IconSearch
             size={20}
-            className='text-slate-600 dark:text-slate-100'
+            className='text-slate-600 dark:text-slate-100 cursor-pointer'
+            onClick={() => modalSearchRef.current?.openModal()}
           />
 
           {/* Toggle dark mode */}
@@ -91,6 +94,9 @@ const Navbar = () => {
           <Menu menu={tvMenu} />
         </div>
       </div>
+
+      {/* Modal Search */}
+      <ModalSearch ref={modalSearchRef} />
     </div>
   )
 }

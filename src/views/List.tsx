@@ -65,7 +65,7 @@ const Movie = () => {
     const params: IGetListPayload = {
       api_key: apiKey,
       page,
-      language: 'en-US',
+      language: 'id',
       region: 'ID',
     }
 
