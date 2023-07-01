@@ -23,7 +23,7 @@ const Navbar = () => {
       { href: 'movie/popular', label: 'Popular' },
       { href: 'movie/now-playing', label: 'Now Playing' },
       { href: 'movie/top-rated', label: 'Top Rated' },
-      { href: 'movie/upcoming', label: 'upcoming' },
+      { href: 'movie/upcoming', label: 'Upcoming' },
     ],
   }
   const tvMenu: IMenu = {

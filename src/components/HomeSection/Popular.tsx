@@ -27,7 +27,7 @@ const Popular = () => {
     const params: IGetListPayload = {
       api_key: apiKey,
       page: 1,
-      language: 'id',
+      language: 'en-US',
       region: 'ID',
     }
 

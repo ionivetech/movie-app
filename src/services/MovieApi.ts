@@ -43,7 +43,12 @@ export const getOnTheAir = async (payload: IGetListPayload) => {
 }
 
 export const getDetail = async (type: string, id: string, payload: IDetailPayload) => {
-  const response = await Api().get(`/${type}/${id}&language=en-US`, { params: payload })
+  const response = await Api().get(`/${type}/${id}`, { params: payload })
+  return response
+}
+
+export const getCredits = async (type: string, id: string, payload: IDetailPayload) => {
+  const response = await Api().get(`/${type}/${id}/credits`, { params: payload })
   return response
 }
 

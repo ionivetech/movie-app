@@ -37,7 +37,7 @@ const ModalSearch = forwardRef<Ref, Props>((props, ref) => {
     const params = {
       query: value,
       page: 1,
-      language: 'id',
+      language: 'en-US',
       api_key: apiKey,
     }
     const resMovie = await searchFilm(params)
@@ -71,7 +71,6 @@ const ModalSearch = forwardRef<Ref, Props>((props, ref) => {
     if (isOpen) {
       const recents = localStorage.getItem('recent-search')
       if (recents) setRecentSearch(JSON.parse(recents))
-      console.log(recentSearch)
     }
   }, [isOpen])
 

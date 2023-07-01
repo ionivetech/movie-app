@@ -21,7 +21,7 @@ const MovieCard = ({ movie }: IProps) => {
     <>
       <Link
         to={`/${movie.first_air_date ? 'tv' : 'movie'}/detail/${movie.id}`}
-        className='w-full h-[220px] md:h-[250px] lg:h-[300px] mb-3 rounded-2xl'
+        className='w-full h-auto md:h-[250px] lg:h-[300px] mb-3 rounded-2xl'
       >
         {/* Image */}
         <LazyLoadImage
@@ -36,7 +36,7 @@ const MovieCard = ({ movie }: IProps) => {
           }}
           effect='black-and-white'
           width='100%'
-          className='w-full h-[220px] md:h-[250px] lg:h-[300px] object-center object-cover rounded-2xl cursor-pointer shadow-lg'
+          className='w-full h-auto md:h-[250px] lg:h-[300px] object-center object-cover rounded-2xl cursor-pointer shadow-lg'
         />
       </Link>
       {/* Movie name */}

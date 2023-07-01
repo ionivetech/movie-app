@@ -5,10 +5,11 @@ import Router from '@/Router'
 function App() {
   return (
     <div className='relative'>
+      {/* Navbar */}
       <Navbar />
-      <div className='relative container md:mt-16 mt-24 py-10'>
-        <Router />
-      </div>
+
+      {/* Content */}
+      <Router />
     </div>
   )
 }
