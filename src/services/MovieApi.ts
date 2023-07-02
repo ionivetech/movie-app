@@ -52,6 +52,21 @@ export const getCredits = async (type: string, id: string, payload: IDetailPaylo
   return response
 }
 
+export const getTrailers = async (type: string, id: string, payload: IDetailPayload) => {
+  const response = await Api().get(`/${type}/${id}/videos`, { params: payload })
+  return response
+}
+
+export const getReviews = async (type: string, id: string, payload: IDetailPayload) => {
+  const response = await Api().get(`/${type}/${id}/reviews`, { params: payload })
+  return response
+}
+
+export const getRecommendation = async (type: string, id: string, payload: IDetailPayload) => {
+  const response = await Api().get(`/${type}/${id}/recommendations`, { params: payload })
+  return response
+}
+
 export const searchFilm = async (payload: object) => {
   const response = await Api().get(`search/movie`, { params: payload })
   return response

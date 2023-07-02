@@ -112,15 +112,15 @@ const ModalSearch = forwardRef<Ref, Props>((props, ref) => {
               leaveFrom='opacity-100 scale-100'
               leaveTo='opacity-0 scale-95'
             >
-              <Dialog.Panel className='w-full max-w-md p-4 text-left align-middle rounded-xl bg-background-light dark:bg-background shadow-xl transform overflow-hidden transition-all'>
+              <Dialog.Panel className='w-full max-w-md p-4 text-left align-middle rounded-xl bg-background-light dark:bg-slate-900 shadow-xl transform overflow-hidden transition-all'>
                 <div className='relative w-full'>
                   <IconSearch
                     size={20}
-                    className='absolute left-3 top-3 text-slate-600 dark:text-slate-400'
+                    className='absolute left-3 top-[10px] text-slate-600 dark:text-slate-400'
                   />
                   <input
                     type='text'
-                    placeholder='Search movie'
+                    placeholder='Search movie or tv show'
                     className='w-full p-2 pl-10 bg-background-light dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-600 placeholder:dark:text-slate-400 border border-gray-400/60 dark:border-slate-700 focus:!border-blue-500 outline-none rounded-md transition-all duration-300'
                     onChange={(e) => handleSearch(e.target.value)}
                   />

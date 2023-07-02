@@ -50,7 +50,7 @@ const MovieListSearch = (props: IProps) => {
       </div>
 
       <div
-        className={`flex justify-center items-center text-xs text-slate-100 min-w-[68px] max-w-[68px] h-7 mx-2 rounded-full ${
+        className={`flex justify-center items-center md:text-xs text-[10px] text-slate-100 md:min-w-[68px] min-w-[60px] md:max-w-[68px] max-w-[60px] md:h-7 h-5 mx-2 rounded-full ${
           movie.first_air_date ? 'bg-blue-600' : 'bg-violet-600'
         }`}
       >
