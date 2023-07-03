@@ -85,6 +85,15 @@ const Detail = () => {
     setIsFirstLoad(false)
   }
 
+  // Reset data
+  const resetData = () => {
+    setDetail(null)
+    setCredits([])
+    setTrailers([])
+    setReviews([])
+    setRecommendations([])
+  }
+
   // Mounted
   useEffect(() => {
     getDetailMovie()
@@ -94,6 +103,7 @@ const Detail = () => {
   useEffect(() => {
     if (!isFirstLoad) {
       window.scrollTo(0, 0)
+      resetData()
       setIsLoading(true)
       getDetailMovie()
     }
