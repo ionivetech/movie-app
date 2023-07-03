@@ -79,7 +79,7 @@ const Detail = () => {
     if (resRecommendations.data && resRecommendations.data.results.length > 0)
       setRecommendations(resRecommendations.data.results)
 
-    Promise.all([resData, resCredits, resTrailers, resReviews]).then(() => {
+    Promise.all([resData, resCredits, resTrailers, resReviews, resRecommendations]).then(() => {
       setIsLoading(false)
     })
     setIsFirstLoad(false)
