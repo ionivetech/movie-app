@@ -111,7 +111,7 @@ const Detail = () => {
 
   return (
     detail && (
-      <>
+      <div className='md:-mt-16 -mt-24'>
         {/* Banner, poster & description */}
         {isLoading && <DetailDescriptionSkeleton />}
         {!isLoading && <DetailDescription movie={detail} />}
@@ -166,7 +166,7 @@ const Detail = () => {
             </div>
           </div>
         </div>
-      </>
+      </div>
     )
   )
 }

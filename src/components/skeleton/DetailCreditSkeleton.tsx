@@ -7,9 +7,9 @@ const DetailCreditSkeleton = () => {
             key={`skeleton-credit-${i}`}
             className='flex flex-col items-center space-y-2'
           >
-            <div className='w-20 h-20 rounded-full bg-slate-300 dark:bg-slate-800 animate-pulse' />
-            <div className='w-28 h-5 rounded bg-slate-300 dark:bg-slate-800 animate-pulse' />
-            <div className='w-28 h-4 rounded bg-slate-300 dark:bg-slate-800 animate-pulse' />
+            <div className='w-20 h-20 rounded-full bg-slate-300 dark:bg-slate-700 animate-pulse' />
+            <div className='w-28 h-5 rounded bg-slate-300 dark:bg-slate-700 animate-pulse' />
+            <div className='w-28 h-4 rounded bg-slate-300 dark:bg-slate-700 animate-pulse' />
           </div>
         )
       })}
