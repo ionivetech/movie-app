@@ -1,7 +1,7 @@
 <h1 align="center">Islam Application</h1>
 
 <p align="center">
-  <a href="https://faridnugraha-movie.netlify.app//">DEMO</a>
+  <a href="https://faridnugraha-movie.netlify.app/">DEMO</a>
 </p>
 
 <br>
@@ -30,7 +30,7 @@
 
 <img src="https://github.com/ionivetech/movie-app/blob/main/public/screenshot/movie-list.png" alt="movie-list" />
 
-<img src="https://github.com/ionivetech/movie-app/blob/main/public/screenshot/movie-detail.png" alt="movie-detail" />
+<img src="https://github.com/ionivetech/movie-app/blob/main/public/screenshot/movie-detail.jpeg" alt="movie-detail" />
 
 <br>
 
