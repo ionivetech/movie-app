@@ -1,29 +1,63 @@
-# Movie App
+<h1 align="center">Islam Application</h1>
 
-I create this app for learn develop application using React, Typescript, Vite, React Router, and Redux Toolkit
+<p align="center">
+  <a href="https://faridnugraha-movie.netlify.app//">DEMO</a>
+</p>
 
-# API Service
+<br>
+
+## :dart: About
+
+<p>This is a Web Movie Application, I create this app for learn develop application using React, Typescript, Vite, React Router, and Redux Toolkit</p>
+
+<br>
+
+## :gem: Features
+
+- Movie/TV show list
+- Search movie/tv show
+- Movie/TV show detail
+
+<br>
+
+## :floppy_disk: Source Data
 
 [Movie Database API](https://api.themoviedb.org)
 
-## Installation & Usage
+<br>
 
-```javascript
-# Installation
-npm install (node version 18)
+## :art: Preview
 
-# running development
-npm run dev
+<img src="https://github.com/ionivetech/movie-app/blob/main/public/screenshot/movie-list.png" alt="movie-list" />
 
-# format code
-npm run format
+<img src="https://github.com/ionivetech/movie-app/blob/main/public/screenshot/movie-detail.png" alt="movie-detail" />
 
-# linting code
-npm run lint
+<br>
 
-# build application
-npm run build
+## :rocket: Technologies
 
-# run builds
-npm run preview
+The following technology were used in this project:
+
+- [React JS](https://react.dev/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+
+<br>
+
+## :checkered_flag: Installation
+
+```bash
+# Install dependencies
+$ pnpm install
+
+# Run on development
+$ pnpm dev
+
+# Build application
+$ pnpm run
+
+# Run on production
+$ pnpm preview
 ```
