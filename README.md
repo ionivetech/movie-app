@@ -1,4 +1,4 @@
-<h1 align="center">Islam Application</h1>
+<h1 align="center">Movie Application</h1>
 
 <p align="center">
   <a href="https://faridnugraha-movie.netlify.app/">DEMO</a>
